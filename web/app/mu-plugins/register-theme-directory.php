@@ -13,11 +13,3 @@
 if (!defined('WP_DEFAULT_THEME')) {
     register_theme_directory(ABSPATH . 'wp-content/themes');
 }
-
-add_filter('graphql_allowed_fields_on_restricted_type', function ($fields, $model_name, $data, $visibility, $owner, $current_user) {
-    print_r($model_name);
-    if ('PostTypeObject' === $model_name) {
-        $fields[] = 'label';
-    }
-    return $fields;
-}, 10, 6);
